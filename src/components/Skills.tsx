@@ -31,7 +31,7 @@ const Skills: React.FC = () => {
     <section id="skills" className="py-20 bg-yellow-300">
       <div className="container mx-auto text-center">
         <Line content="Skills" />
-        <p className="flex flex-col gap-5 p-10 rounded-xl bg-white/80 mt-10">
+        <p className="flex flex-col gap-5 p-10 rounded-xl justify-center bg-white/80 mt-10">
           {ITEMS.map((item, i) => <SkillCategory key={i}{...item} />)}
         </p>
       </div>
