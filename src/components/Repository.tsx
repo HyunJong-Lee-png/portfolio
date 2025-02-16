@@ -25,7 +25,7 @@ const Repository: React.FC = () => {
           onClick={() => window.open("https://github.com/HyunJong-Lee-png")}
         >
           <div className="flex flex-col gap-5">
-            <img src="/github.jpg" alt="image" />
+            <img src="./github.jpg" alt="image" />
             <motion.a
               href="https://github.com/HyunJong-Lee-png"
               target="_blank"

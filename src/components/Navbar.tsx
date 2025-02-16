@@ -1,4 +1,5 @@
-import { motion, useAnimation, useScroll } from "framer-motion";
+import { AnimatePresence, motion, useAnimation, useScroll } from "framer-motion";
+import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 
@@ -17,6 +18,11 @@ const Navbar: React.FC = () => {
   const navAnimation = useAnimation();
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [clickMenu, setClickMenu] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setClickMenu(prev => !prev);
+  }
 
   useEffect(() => {
     scrollY.on('change', () => {
@@ -42,8 +48,8 @@ const Navbar: React.FC = () => {
             HyunJong's Portfolio
           </Link>
         </h1>
-        <div className="space-x-4">
-          {["about", "skills", "repository", "projects", "contact"].map(item =>
+        <div className="space-x-4 hidden md:block">
+          {["about", "skills", "repository", "projects"].map(item =>
             <Link
               key={item}
               to={item}
@@ -58,7 +64,35 @@ const Navbar: React.FC = () => {
             </Link>
           )}
         </div>
+        {<Menu className={`md:hidden cursor-pointer ${isScrolled ? "hover:text-red-500" : "hover:text-blue-500"}  transition-all`} onClick={toggleMobileMenu} />}
       </div>
+      <AnimatePresence>
+        {clickMenu &&
+          <motion.nav className={`min-h-60 ${isScrolled ? "bg-black" : "bg-white"} absolute top-16 w-full md:hidden`}
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1, transformOrigin: 'top' }}
+            exit={{ scaleY: 0 }}
+            transition={{ ease: 'linear' }}
+          >
+            <div className="flex flex-col gap-5 container mx-auto px-3">
+              {["about", "skills", "repository", "projects"].map(item =>
+                <Link
+                  key={item}
+                  to={item}
+                  smooth={true}
+                  duration={500}
+                  className={`cursor-pointer px-3 py-2 transition-all duration-600 ${isScrolled
+                    ? "text-white hover:text-red-500"
+                    : "text-gray-500 hover:text-blue-500"
+                    }`}
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </Link>
+              )}
+            </div>
+
+          </motion.nav>}
+      </AnimatePresence>
     </motion.nav>
   );
 };

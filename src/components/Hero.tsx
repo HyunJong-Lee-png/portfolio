@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const Hero: React.FC = () => {
   return (
     <section id="hero"
-      className="h-[80vh] flex flex-col justify-center items-center text-center relative text-white bg-custom-image bg-cover bg-center bg-no-repeat opacity-80">
+      className="h-[80vh] flex flex-col justify-center items-center text-center relative text-white opacity-80" style={{ background: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),url('./photo.jpg')", backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
       <motion.h1
         className="text-5xl font-bold relative 
         before:content-[''] before:block before:w-20 before:h-[5px] before:bg-red-500 before:absolute before:-bottom-7 before:left-1/2 before:-translate-x-1/2 before:rounded-2xl"
