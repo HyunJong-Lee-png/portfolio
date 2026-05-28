@@ -1,4 +1,4 @@
-import { CakeIcon, Mail, MapPin, Phone, School, UserSquare2Icon } from "lucide-react";
+import { Mail, Phone, School, UserSquare2Icon } from "lucide-react";
 import Profile from "./Profile";
 import Line from "./Line";
 
@@ -6,14 +6,6 @@ const ITEMS = [{
   image: <UserSquare2Icon size={50} />,
   title: '이름',
   description: '이현종'
-}, {
-  image: <CakeIcon size={50} />,
-  title: '생년월일',
-  description: '1992-10-09'
-}, {
-  image: <MapPin size={50} />,
-  title: '위치',
-  description: '서울특별시 관악구'
 }, {
   image: <Phone size={50} />,
   title: '연락처',
